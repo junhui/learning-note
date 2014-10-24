@@ -1,0 +1,24 @@
+0    [main] INFO  org.eclipse.jetty.util.log  - Logging initialized @337ms
+157  [main] INFO  org.eclipse.jetty.server.Server  - jetty-9.2.3.v20140905
+172  [main] INFO  org.eclipse.jetty.deploy.providers.ScanningAppProvider  - Deployment monitor [file:/user/Dropbox/github/jettytraining/files/webapps/] at interval 1
+287  [main] INFO  org.eclipse.jetty.webapp.StandardDescriptorProcessor  - NO JSP Support for /, did not find org.apache.jasper.servlet.JspServlet
+319  [main] INFO  org.eclipse.jetty.server.handler.ContextHandler  - Started o.e.j.w.WebAppContext@111be427{/,file:/user/Dropbox/github/jettytraining/files/webapps/ROOT/,AVAILABLE}{/ROOT}
+354  [main] INFO  org.eclipse.jetty.webapp.StandardDescriptorProcessor  - NO JSP Support for /basic-servlet, did not find org.apache.jasper.servlet.JspServlet
+358  [main] INFO  org.eclipse.jetty.server.handler.ContextHandler  - Started o.e.j.w.WebAppContext@699b7b7d{/basic-servlet,file:/user/Dropbox/github/jettytraining/files/tmpWork/jetty-0.0.0.0-8080-basic-servlet.war-_basic-servlet-any-7272205464004514637.dir/webapp/,AVAILABLE}{webapps/basic-servlet.war}
+388  [main] INFO  org.eclipse.jetty.server.ServerConnector  - Started ServerConnector@7e400fd9{HTTP/1.1}{0.0.0.0:8080}
+389  [main] INFO  org.eclipse.jetty.server.Server  - Started @797ms
+856228 [Thread-0] INFO  org.eclipse.jetty.server.ServerConnector  - Stopped ServerConnector@7e400fd9{HTTP/1.1}{0.0.0.0:8080}
+856231 [Thread-0] INFO  org.eclipse.jetty.server.handler.ContextHandler  - Stopped o.e.j.w.WebAppContext@699b7b7d{/basic-servlet,file:/user/Dropbox/github/jettytraining/files/tmpWork/jetty-0.0.0.0-8080-basic-servlet.war-_basic-servlet-any-7272205464004514637.dir/webapp/,UNAVAILABLE}{webapps/basic-servlet.war}
+856235 [Thread-0] INFO  org.eclipse.jetty.server.handler.ContextHandler  - Stopped o.e.j.w.WebAppContext@111be427{/,file:/user/Dropbox/github/jettytraining/files/webapps/ROOT/,UNAVAILABLE}{/ROOT}
+0    [main] INFO  org.eclipse.jetty.util.log  - Logging initialized @335ms
+171  [main] INFO  org.eclipse.jetty.server.Server  - jetty-9.2.3.v20140905
+193  [main] INFO  org.eclipse.jetty.deploy.providers.ScanningAppProvider  - Deployment monitor [file:/user/Dropbox/github/jettytraining/files/webapps/] at interval 1
+286  [main] INFO  org.eclipse.jetty.webapp.StandardDescriptorProcessor  - NO JSP Support for /, did not find org.apache.jasper.servlet.JspServlet
+317  [main] INFO  org.eclipse.jetty.server.handler.ContextHandler  - Started o.e.j.w.WebAppContext@3e1fc537{/,file:/user/Dropbox/github/jettytraining/files/webapps/ROOT/,AVAILABLE}{/ROOT}
+352  [main] INFO  org.eclipse.jetty.webapp.StandardDescriptorProcessor  - NO JSP Support for /basic-servlet, did not find org.apache.jasper.servlet.JspServlet
+355  [main] INFO  org.eclipse.jetty.server.handler.ContextHandler  - Started o.e.j.w.WebAppContext@5ec881b5{/basic-servlet,file:/user/Dropbox/github/jettytraining/files/tmpWork/jetty-0.0.0.0-8080-basic-servlet.war-_basic-servlet-any-5259091351235610573.dir/webapp/,AVAILABLE}{webapps/basic-servlet.war}
+378  [main] INFO  org.eclipse.jetty.server.ServerConnector  - Started ServerConnector@227770e7{HTTP/1.1}{0.0.0.0:8080}
+378  [main] INFO  org.eclipse.jetty.server.Server  - Started @777ms
+226940 [Thread-0] INFO  org.eclipse.jetty.server.ServerConnector  - Stopped ServerConnector@227770e7{HTTP/1.1}{0.0.0.0:8080}
+226943 [Thread-0] INFO  org.eclipse.jetty.server.handler.ContextHandler  - Stopped o.e.j.w.WebAppContext@5ec881b5{/basic-servlet,file:/user/Dropbox/github/jettytraining/files/tmpWork/jetty-0.0.0.0-8080-basic-servlet.war-_basic-servlet-any-5259091351235610573.dir/webapp/,UNAVAILABLE}{webapps/basic-servlet.war}
+226945 [Thread-0] INFO  org.eclipse.jetty.server.handler.ContextHandler  - Stopped o.e.j.w.WebAppContext@3e1fc537{/,file:/user/Dropbox/github/jettytraining/files/webapps/ROOT/,UNAVAILABLE}{/ROOT}
