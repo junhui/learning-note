@@ -19,7 +19,7 @@ public class HelloWorldServlet extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 		String msg = req.getServletPath().replace('/', ' ').replaceFirst("\\.hello$", "");
 		out.println("<html><head><title>Hello</title></head>");
-		out.println("<body style='background-color: #eeffee;'>");
+		out.println("<body style='background-color: #eeeeff;'>");
 		out.printf("Hello%s%n",msg);
 		out.println("</body></html>");
 	}

@@ -18,6 +18,7 @@
  
 package org.eclipse.jetty.example.fileserver;
  
+import org.eclipse.jetty.http.MimeTypes;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
@@ -25,6 +26,7 @@ import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
 import org.eclipse.jetty.server.handler.ResourceHandler;
+import org.eclipse.jetty.servlets.gzip.GzipHandler;
 import org.eclipse.jetty.toolchain.test.MavenTestingUtils;
 import org.eclipse.jetty.util.resource.Resource;
  
@@ -45,7 +47,7 @@ public class SplitFileServer
         // started you can called connector.getLocalPort() to programmatically get the port the server started on.
         Server server = new Server();
         ServerConnector connector = new ServerConnector(server);
-        connector.setPort(9090);
+        connector.setPort(9093);
         server.setConnectors(new Connector[]
         { connector });
  
@@ -63,14 +65,20 @@ public class SplitFileServer
         ContextHandler context1 = new ContextHandler();
         context1.setContextPath("/");   
         ResourceHandler rh1 = new ResourceHandler();
+        
         rh1.setBaseResource( Resource.newResource(MavenTestingUtils.getTestResourceDir("dir1")));
+        
+        
         context1.setHandler(rh1);
         
         // Rinse and repeat the previous item, only specifying a different resource base.
         ContextHandler context2 = new ContextHandler();
-        context2.setContextPath("/");   
+        context2.setContextPath("/foo");   
         ResourceHandler rh2 = new ResourceHandler();
         rh2.setBaseResource( Resource.newResource(MavenTestingUtils.getTestResourceDir("dir2")));
+        MimeTypes m=new MimeTypes();
+        m.addMimeMapping("asc", "text/html");
+        rh2.setMimeTypes(m);
         context2.setHandler(rh2);
         
         // Create a ContextHandlerCollection and set the context handlers to it. This will let jetty process urls
@@ -79,7 +87,13 @@ public class SplitFileServer
         contexts.setHandlers(new Handler[]
         { context0, context1, context2 });
  
-        server.setHandler(contexts);
+        GzipHandler gzip = new GzipHandler();
+        
+        gzip.setMimeTypes("text/html,text/css,text/plain");
+        gzip.setMinGzipSize(1);
+        gzip.setHandler(contexts);
+        
+        server.setHandler(gzip);
  
         // Start things up! By using the server.join() the server thread will join with the current thread.
         // See "http://docs.oracle.com/javase/1.5.0/docs/api/java/lang/Thread.html#join()" for more details.
