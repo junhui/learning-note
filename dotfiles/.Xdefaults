@@ -1,0 +1,78 @@
+! ----------------------------------------------------------------------------
+! file:     ~/.Xdefaults
+! author:   Achmad Mahardi - http://mahardi.heroku.com
+! vim: :nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
+! ----------------------------------------------------------------------------
+
+*customization:          -color
+URxvt*termName:          rxvt-256color
+
+URxvt.inputMethod:ibus
+
+!URxvt*font: xft:Monospace:pixelsize=12
+!URxvt*boldFont: xft:Monospace:pixelsize=12
+
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=16
+URxvt*boldFont: xft:DejaVu Sans Mono:pixelsize=16ans
+
+URxvt.scrollBar:         false
+URxvt.imLocale:          en_US.UTF-8
+URxvt.saveLines:         512
+URxvt.geometry:          95x26
+URxvt.boldMode:          false
+URxvt.inheritPixmap:     false
+URxvt.jumpScroll:        true
+URxvt.perl-ext-common:   default,matcher
+URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+URxvt.urlLauncher:       google-chrome
+URxvt.matcher.button:    1
+URxvt*keysym.Home:       \033[7~
+URxvt*keysym.End:        \033[8~
+Urxvt.tabbed.tabbar-bg:  7
+Urxvt.tabbed.tabbar-fg:  0
+Urxvt.tabbed.tab-bg:     5
+Urxvt.tabbed.tab-fg:     0
+URxvt.internalBorder:    5
+URxvt.colorBD:           #ffffff
+URxvt.colorIT:           #bbbbbb
+URxvt.colorUL:           #999999
+URxvt.underlineColor:    #999999
+URxvt.borderless:        true
+!URxvt.borderColor:       [97]#151515
+
+#include                 "/home/jason/.colors/railscasts.colors"
+!#include                "/home/jason/.colors/urxvt.fix"
+
+!URxvt.depth:             32
+!URxvt.background:        [97]#151515
+
+alsamixer*scrollBar:     false
+
+Xft.autohint:            0
+Xft.lcdfilter:           lcddefault
+Xft.dpi:                 96
+Xft.antialias:           1
+Xft.hinting:             1
+Xft.hintstyle:           nohint
+Xft.rgba:                rgb
+
+!!滚动条设置
+URxvt.scrollBar:True
+URxvt.scrollBar_right:True
+URxvt.scrollBar_floating:False
+URxvt.scrollstyle:plain
+
+urxvt*transparent: true
+urxvt*shading: 15
+
+
+URxvt.perl-ext-common: ...,clipboard
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escapedex
+
+URxvt.perl-ext-common:  ...,font-size,...
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
