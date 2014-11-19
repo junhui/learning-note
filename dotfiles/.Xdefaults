@@ -1,78 +1,81 @@
 ! ----------------------------------------------------------------------------
 ! file:     ~/.Xdefaults
-! author:   Achmad Mahardi - http://mahardi.heroku.com
-! vim: :nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
+! author:   Tim Branyen - http://www.tabdeveloper.com/
+! modified: January 2011
+! vim:      nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
 ! ----------------------------------------------------------------------------
 
-*customization:          -color
-URxvt*termName:          rxvt-256color
+! Colors
+URxvt.background:  #1c1c1c
+URxvt.foreground:  #efefcf
+URxvt*color0:      #1c1c1c
+URxvt*color1:      #ff9383
+URxvt*color2:      #aece92
+URxvt*color3:      #ffd674
+URxvt*color4:      #7ab2ff
+URxvt*color5:      #ff5287
+URxvt*color6:      #418179
+URxvt*color7:      #bebebe
+URxvt*color8:      #666666
+URxvt*color9:      #cf6171
+URxvt*color10:     #dcffa4
+URxvt*color11:     #fff796
+URxvt*color12:     #4186be
+URxvt*color13:     #cf9ebe
+URxvt*color14:     #71bebe
+URxvt*color15:     #ffffff
 
-URxvt.inputMethod:ibus
+! DPI font
+Xft.dpi: 96.0
+Xft.antialias: true
 
-!URxvt*font: xft:Monospace:pixelsize=12
-!URxvt*boldFont: xft:Monospace:pixelsize=12
+! Set the Perl lib
+URxvt.perl-lib: ~/dotfiles/urxvt/perl
 
-URxvt*font: xft:DejaVu Sans Mono:pixelsize=16
-URxvt*boldFont: xft:DejaVu Sans Mono:pixelsize=16ans
-
-URxvt.scrollBar:         false
-URxvt.imLocale:          en_US.UTF-8
-URxvt.saveLines:         512
-URxvt.geometry:          95x26
-URxvt.boldMode:          false
-URxvt.inheritPixmap:     false
-URxvt.jumpScroll:        true
-URxvt.perl-ext-common:   default,matcher
+! Look and feel
+URxvt*scrollBar_right: false
+URxvt*scrollBar: false
+URxvt*borderLess: false
+URxvt*tintColor: white
+URxvt*shading: 10
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=15
+URxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=15ans
+URxvt*background: #000000
+URxvt*foreground: #FFFFFF
+URxvt.perl-ext-common: default,matcher
+URxvt.urlLauncher: firefox
+URxvt.matcher.button: 2
 URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
-URxvt.urlLauncher:       google-chrome
-URxvt.matcher.button:    1
-URxvt*keysym.Home:       \033[7~
-URxvt*keysym.End:        \033[8~
-Urxvt.tabbed.tabbar-bg:  7
-Urxvt.tabbed.tabbar-fg:  0
-Urxvt.tabbed.tab-bg:     5
-Urxvt.tabbed.tab-fg:     0
-URxvt.internalBorder:    5
-URxvt.colorBD:           #ffffff
-URxvt.colorIT:           #bbbbbb
-URxvt.colorUL:           #999999
-URxvt.underlineColor:    #999999
-URxvt.borderless:        true
-!URxvt.borderColor:       [97]#151515
 
-#include                 "/home/jason/.colors/railscasts.colors"
-!#include                "/home/jason/.colors/urxvt.fix"
+! Load extensions.
+URxvt.perl-ext-common:  default,tabbed,clipboard,url-select
 
-!URxvt.depth:             32
-!URxvt.background:        [97]#151515
+! Tabs support.
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    2
+URxvt.tabbed.tab-bg:    0
+!Shift+ ↓ new tab
+!Shift+ ← go to left tab
+!Shift+ → go to right tab
+!Ctrl+ ← move tab to the left
+!Ctrl+ → move tab to the right
+!Ctrl+D: close tab
 
-alsamixer*scrollBar:     false
-
-Xft.autohint:            0
-Xft.lcdfilter:           lcddefault
-Xft.dpi:                 96
-Xft.antialias:           1
-Xft.hinting:             1
-Xft.hintstyle:           nohint
-Xft.rgba:                rgb
-
-!!滚动条设置
-URxvt.scrollBar:True
-URxvt.scrollBar_right:True
-URxvt.scrollBar_floating:False
-URxvt.scrollstyle:plain
-
-urxvt*transparent: true
-urxvt*shading: 15
-
-
-URxvt.perl-ext-common: ...,clipboard
+! Copy and paste.
 URxvt.keysym.M-c:   perl:clipboard:copy
 URxvt.keysym.M-v:   perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escapedex
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+! 禁用到Ctrl+Shift的输入特殊字符功能
+URxvt*iso14755_52: false
 
-URxvt.perl-ext-common:  ...,font-size,...
-URxvt.keysym.C-Up:     perl:font-size:increase
-URxvt.keysym.C-Down:   perl:font-size:decrease
-URxvt.keysym.C-S-Up:   perl:font-size:incglobal
-URxvt.keysym.C-S-Down: perl:font-size:decglobal
+
+
+! Url selection.
+URxvt.urlLauncher: chromium
+URxvt.underlineURLs: true
+
+! Compatibility settings
+URxvt*termName: rxvt-256color

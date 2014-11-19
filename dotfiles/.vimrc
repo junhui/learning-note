@@ -87,25 +87,19 @@ hi Number       ctermfg=73      cterm=none      guifg=#e5786d   gui=none
 set number   " 显示行号
 set hidden    " 允许在有未保存的修改时切换缓冲区
 set wildmenu " 开启命令行补全
-set smartindent " 智能自动缩进
+"set smartindent " 智能自动缩进
 "set scrolloff=3  " 上下可视行数
 "set nocursorline  " 不突出显示当前行
 set showmatch  "显示括号配对情况
 
-" Tab
-set softtabstop=4 " 设置按BackSpace的时候可以一次删除掉4个空格
-
 " ---------------
 " Text Format
 " ---------------
-set tabstop=4
-set shiftwidth=4 " Tabs under smart indent
-set softtabstop=4
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab<
 set shiftround
-set cindent
+"set cindent
 "set autoindent
-set smarttab
-set expandtab
+"set smarttab
 set backspace=indent,eol,start    " 让退格键和 Delete 键支持删除回车符
 
 " {{{ NERDtree 文件管理器
@@ -160,7 +154,6 @@ nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
 
-nmap <F12> :TagbarToggle<CR>
 map <c-f> :call JsBeautify()<cr>
 " autocmd FileType javascript vnoremap <buffer>  <c-f> :call JsBeautify()<cr>
 " autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
@@ -209,10 +202,58 @@ hi ColorColumn ctermbg=236 guibg=#383838
 " " Change background color
 hi Normal ctermfg=252 ctermbg=234 cterm=none guifg=#e3e0d7 guibg=#242424 gui=none
 hi LineNr ctermfg=241 ctermbg=234 cterm=none guifg=#857b6f guibg=#242424 gui=none
-"hi Function cterm=italic
+" hi Function cterm=italic
+" Custom filetypes
+au BufNewFile,BufRead *.md set ft=markdown
 "
+" Change tabline colors
+hi! TabLineFill term=underline cterm=underline gui=underline
+
+hi! TabLineFillEnd term=underline cterm=underline gui=underline ctermfg=white ctermbg=black guifg=#FFFFFF guibg=#000000
+
 set list listchars=tab:→\ ,trail:·
 
 set nobackup
 set noswapfile
+set pastetoggle=<F2>
 noremap <F3> :Autoformat<CR><CR>
+
+"Automatically reload .vimrc if it changes
+autocmd! bufwritepost .vimrc source %
+
+" change tab stop
+map <silent> <leader>t2 :set tabstop=2 softtabstop=2 shiftwidth=2 expandtab<CR>
+map <silent> <leader>t4 :set tabstop=4 softtabstop=4 shiftwidth=4 expandtab<CR>
+
+
+
+" NERDTree
+let NERDTreeChDirMode = 1
+map <silent> <leader>f :NERDTreeToggle<CR>
+" Taglist
+let Tlist_Use_Right_Window = 1
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Show_One_File = 1
+let Tlist_WinWidth = 40
+let Tlist_javascript_Hide_Extras = ['type']
+map <silent> <leader><space> :TagbarToggle<CR>
+
+" Better buffer management
+map <silent> <leader>b :buffers<CR>:buffer<Space>
+" Search
+map <leader>s :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+" Useful mappings for managing tabs
+map <leader>tn :tabnew<cr>
+map <leader>to :tabonly<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Spell checking
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Pressing ,ss will toggle and untoggle spell checking
+map <leader>ss :setlocal spell!<cr>
